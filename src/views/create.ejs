@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Add Book</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav>
+      <div class="logo">
+        <h1>HS25</h1>
+      </div>
+
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a class="active" href="/add-book">Add Book</a>
+        </li>
+        <li>
+            <a href="/search"> Search</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div class="add-book">
+        <form id="addBookForm" action="/add-book" method="post">
+        <fieldset>
+            <legend> ADD NEW BOOK </legend>
+            <div class="input-group">
+                <label> TITLE: </label>
+                <input type="text" name="title">
+            </div>
+            <div class="input-group">
+                <label> AUTHOR: </label>
+                <input type="text" name="author">
+            </div>
+            <div class="input-group">
+                <label> QUANTITY: </label>
+                <input type="int" name="quantity">
+            </div>
+            <div class="input-group">
+                <label> DATE RECEIVED: </label>
+                <input class="date_ip" type="date" name="date">
+            </div>
+            <div>
+                <button> Save </button>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('addBookForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn form gửi dữ liệu ngay lập tức
+
+            // Hiển thị thông báo
+            alert('ADD BOOK SUCCEED!');
+
+            // Gửi form sau khi hiển thị thông báo
+            this.submit();
+        });
+    </script>
+
+  </body>
+
+</html>
+

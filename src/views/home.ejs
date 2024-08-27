@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav>
+      <div class="logo">
+        <h1>HS25</h1>
+      </div>
+
+      <ul>
+        <li>
+          <a class="active" href="/">Home</a>
+        </li>
+        <li>
+          <a href="/add-book">Add Book</a>
+        </li>
+        <li>
+          <a href="/search"> Search</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div class="table-container"> 
+      <div class="title"> LIST BOOKS </div> 
+      <table>
+          <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>QUANTITY</th>
+            <th>DATE RECEIVED</th>
+          </tr>
+          
+          <% listBooks.forEach(function(book) { %>
+            <tr>
+              <td> <%= book.id %> </td>
+              <td> <%= book.book_title %> </td>
+              <td> <%= book.author %> </td>
+              <td> <%= book.quantity %> </td>
+              <td> <%= formatDate(book.date_received) %> </td>
+              <!-- <td>
+                <a href="/update/<%= book.id %>">Edit</a>
+                <form action="/delete/<%= book.id %>", method="post">
+                    <button>Delete</button>
+                </form>
+                
+              </td> -->
+            </tr>
+          <% }) %>
+      </table>
+    </div>
+
+
+  </body>
+
+</html>
+
+<% 
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+%>
+
