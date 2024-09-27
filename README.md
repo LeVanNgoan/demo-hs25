@@ -1,3 +1,3 @@
 ##Set up
-
-`npm init`
+- Install Node.js
+- Install dependencies: \code npm i
