@@ -1,3 +1,4 @@
+//config connect với database
 
 require('dotenv').config();
 const mysql = require('mysql2/promise')

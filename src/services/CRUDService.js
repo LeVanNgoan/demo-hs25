@@ -1,3 +1,5 @@
+//tương tác với database
+
 const connection = require('../config/database')
 
 const getAllBooks = async () => {

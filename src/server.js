@@ -10,9 +10,7 @@ const port = process.env.PORT || 3000
 const hostname = process.env.HOST_NAME
 
 configViewEngine(app)
-
 app.use(webRoutes)
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, hostname, () => {
