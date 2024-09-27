@@ -46,13 +46,6 @@
               <td> <%= book.author %> </td>
               <td> <%= book.quantity %> </td>
               <td> <%= formatDate(book.date_received) %> </td>
-              <!-- <td>
-                <a href="/update/<%= book.id %>">Edit</a>
-                <form action="/delete/<%= book.id %>", method="post">
-                    <button>Delete</button>
-                </form>
-                
-              </td> -->
             </tr>
           <% }) %>
       </table>

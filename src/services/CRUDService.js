@@ -14,8 +14,16 @@ const getQueryBook = async (query) => {
     return results;
 }
 
+const getBookById = async (id) => {
+    let [results, fields] = await connection.query(
+        `SELECT * FROM books 
+        WHERE id = ?`, [id]
+    )
+    return results
+}
+
 module.exports = {
-    getAllBooks, getQueryBook
+    getAllBooks, getQueryBook, getBookById
 }
 
 function convertDateFormat(dateStr) {

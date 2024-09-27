@@ -13,6 +13,8 @@ configViewEngine(app)
 
 app.use(webRoutes)
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`)
 })

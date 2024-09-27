@@ -1,6 +1,6 @@
 
 const connection = require("../config/database")
-const { getAllBooks, getQueryBook } = require("../services/CRUDService")
+const { getAllBooks, getQueryBook, getBookById } = require("../services/CRUDService")
 
 const getHomepage = async (req, res) => {
     let results = await getAllBooks();
@@ -29,8 +29,15 @@ const postSearchList = async (req, res) => {
     let results = await getQueryBook(query)
     return res.render('search.ejs', {listBooks : results, search: query})
 }
+
+const getUpdateBook = async (req, res) => {
+    const book_id = req.params.id
+    let results = await getBookById(book_id)
+    console.log('>>>>> ', results)
+    return res.render('update.ejs', {book: results})
+}
     
 module.exports = { 
     getHomepage, getAddBook, getSearchBook,
-    postAddBook, postSearchList
+    postAddBook, postSearchList, getUpdateBook
 }
